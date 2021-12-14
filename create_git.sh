@@ -4,12 +4,16 @@ username="danfmihai"
 if [ "$reponame" = "" ]; then
 read -p "Enter Github Repository Name: " reponame
 fi
-echo $reponame
+if [ "$username" = "" ]; then
+read -p "Enter Github Repository Name: " username
+fi
+echo "Your username/reponame are set as: ${username}/${reponame}"
+
 
 # mkdir ./$reponame
 # cd $reponame
 #curl -u USERNAME https://api.github.com/user/repos -d "{\"name\":\"$reponame\"}"
-curl -i -H "Authorization: token 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" -d "{\"name\": \"$reponame\", \"auto_init\": \"true\", \"private\": \"false\" }" https://api.github.com/user/repos
+curl -i -H "Authorization: token <token>" -d "{\"name\": \"$reponame\", \"auto_init\": \"true\", \"private\": \"false\" }" https://api.github.com/user/repos
 git init
 echo>placeholder.txt
 git add .
