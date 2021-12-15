@@ -1,11 +1,11 @@
 #!/bin/sh
 
 #################################################################################  
-#       Will create the current folder as a new repointo Github and push        #
+#       Will create the current folder as a new repo into Github and push       #
 #       all files into the new repo.                                            #
-#       You need to add your token as an argument to be able to access 
-#       Github API.              #
-#       ex. sh create_git.sh abcnefghanjsdnkj
+#       You need to add your token as an argument to be able to access          #
+#       Github API.                                                             #
+#       ex. sh create_git.sh <your token here>                                  #
 
 # exit when any command fails
 set -e
@@ -41,7 +41,8 @@ if [ $# -ne 0 ]; then
     # cd $reponame
     #curl -u USERNAME https://api.github.com/user/repos -d "{\"name\":\"$reponame\"}"
 
-    curl -i -H "Authorization: token $git_token" -d "{\"name\": \"$reponame\", \"auto_init\": \"true\", \"private\": \"false\" }" https://api.github.com/user/repos
+    curl -i -H "Authorization: token $git_token" -d "{\"name\": \"$reponame\", \"auto_init\": \"true\" }" https://api.github.com/user/repos
+    #curl -i -H "Authorization: token $git_token" -d "{\"name\": \"$reponame\", \"auto_init\": \"true\", \"private\": \"false\" }" https://api.github.com/user/repos
     git init
     echo "# ${reponame}" > README.md
     echo "create_git.sh" > .gitignore
