@@ -48,8 +48,9 @@ if [ $# -ne 0 ]; then
     echo "create_git.sh" > .gitignore
     git add .
     git commit -m "initial commit --auto"
+    git config pull.rebase false
     git pull origin main
-    git remote add origin https://github.com/$user_name/$reponame.git
+    git remote add origin git@github.com/$user_name/$reponame.git
     git push -f --set-upstream origin main
     
 else
