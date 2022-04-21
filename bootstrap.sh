@@ -47,8 +47,12 @@ function ubuntu() {
         echo "Current user: ${current_user}"
         echo "Shell: ${shell_cli}"
         #  amazon-linux-extras install epel -y
+        
+        echo    "##########################################################"
+        echo -e "$(tput setaf 3)Installing packages:$(tput sgr 0)"
+        echo    "##########################################################"
+        
         sleep 3
-        echo "$(tput setaf 3)Installing required packages:$(tput sgr 0)\"n"
 
         for value in "${PKGS[@]}"
         do
